@@ -36,13 +36,6 @@
             <version>1.1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- spring-data-neo4j -->
-       <!-- <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-neo4j</artifactId>
-            <version>4.0.0.BUILD-SNAPSHOT</version>
-        </dependency>-->
-
         <dependency>
             <groupId>com.voodoodyne.jackson.jsog</groupId>
             <artifactId>jackson-jsog</artifactId>

@@ -14,9 +14,6 @@ package school;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
 
-/**
- * Created by luanne on 18/06/15.
- */
 public class Neo4jSessionFactory {
 
 	private final static SessionFactory sessionFactory = new SessionFactory("school.domain");

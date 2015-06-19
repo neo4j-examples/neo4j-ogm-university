@@ -31,7 +31,6 @@ public class ImportService {
         Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
         session.purgeDatabase();
         session.execute(load("school.cql"));
-        //session.save(createNewSchool());
     }
 
     protected static String load(String cqlFile) {

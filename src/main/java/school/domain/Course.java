@@ -33,7 +33,7 @@ public class Course extends Entity {
     private Teacher teacher;
 
     @Relationship(type= "ENROLLED", direction=Relationship.INCOMING)
-    private Set<Student> students = new HashSet<>();
+    private Set<Enrollment> enrollments = new HashSet<>();
 
     public Teacher getTeacher() {
         return teacher;
@@ -59,12 +59,12 @@ public class Course extends Entity {
         this.subject = subject;
     }
 
-    public Set<Student> getStudents() {
-        return students;
+    public Set<Enrollment> getEnrollments() {
+        return enrollments;
     }
 
-    public void setStudents(Set<Student> students) {
-        this.students = students;
+    public void setEnrollments(Set<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class Course extends Entity {
                 ", name='" + name + '\'' +
                 ", teacher=" + teacher +
                 ", subject=" + subject +
-                ", students=" + students.size() +
+                ", students=" + enrollments.size() +
                 '}';
     }
 }

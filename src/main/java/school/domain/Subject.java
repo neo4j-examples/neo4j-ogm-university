@@ -26,7 +26,7 @@ public class Subject extends Entity {
     @Relationship(type = "TAUGHT_BY")
     private Set<Teacher> teachers;
 
-    @Relationship(type = "SUBJECT_TAUGHT")
+    @Relationship(type = "SUBJECT_TAUGHT", direction = "INCOMING")
     private Set<Course> courses;
 
     public Subject(String name) {

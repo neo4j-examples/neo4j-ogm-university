@@ -19,51 +19,65 @@ import org.neo4j.ogm.annotation.Relationship;
 
 public class Student extends Entity {
 
-    private String name;
+	private String name;
 
-    @Relationship(type = "ENROLLED")
-    private Set<Course> courses;
+	@Relationship(type = "ENROLLED")
+	private Set<Enrollment> enrollments;
 
-    @Relationship(type="BUDDY", direction=Relationship.INCOMING)
-    private Set<StudyBuddy> studyBuddies;
+	private Set<Course> courses;
 
-    public Student() {
-        this.studyBuddies = new HashSet<>();
-        this.courses = new HashSet<>();
-    }
+	@Relationship(type = "BUDDY", direction = Relationship.INCOMING)
+	private Set<StudyBuddy> studyBuddies;
 
-    public Student(String name) {
-        this();
-        this.name = name;
-    }
+	public Student() {
+		this.studyBuddies = new HashSet<>();
+		this.enrollments = new HashSet<>();
+	}
 
-    public String getName() {
-        return name;
-    }
+	public Student(String name) {
+		this();
+		this.name = name;
+	}
 
-    public Set<StudyBuddy> getStudyBuddies() {
-        return studyBuddies;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Set<StudyBuddy> getStudyBuddies() {
+		return studyBuddies;
+	}
 
-    public Set<Course> getCourses() {
-        return courses;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setCourses( Set<Course> courses ) {
-        this.courses = courses;
-    }
+	public Set<Course> getCourses() {
+		//TODO temp fix till the UI is able to deal with enrollments
+		courses = new HashSet<>();
+		for (Enrollment enrollment : enrollments) {
+			courses.add(enrollment.getCourse());
+		}
+		return courses;
+	}
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + getId() +
-                ", name='" + name + '\'' +
-                ", courses=" + courses.size() +
-                ", studyBuddies=" + studyBuddies.size() +
-                '}';
-    }
+	public void setCourses(Set<Course> courses) {
+		//TODO temp fix till the UI is able to deal with enrollments
+		this.courses = courses;
+		enrollments = new HashSet<>();
+		for (Course course : courses) {
+			Enrollment enrollment = new Enrollment(this, course);
+			enrollments.add(enrollment);
+			course.getEnrollments().add(enrollment);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Student{" +
+				"id=" + getId() +
+				", name='" + name + '\'' +
+				", courses=" + enrollments.size() +
+				", studyBuddies=" + studyBuddies.size() +
+				'}';
+	}
 }

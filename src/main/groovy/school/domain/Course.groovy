@@ -36,19 +36,19 @@ public class Course extends Entity {
     @Relationship(type= "ENROLLED", direction=Relationship.INCOMING)
     Set<Enrollment> enrollments = new HashSet<>()
 
-    Set<Student> students = new HashSet<>()
+//    Set<Student> students = new HashSet<>()
 
     Set<Student> getStudents() {
         //TODO temp fix till the UI is able to deal with enrollments
+        def students = []
         enrollments.each {enrollment->
-            students.add(enrollment.student)
+            students << enrollment.student
         }
         return students
     }
 
     void setStudents(Set<Student> students) {
         //TODO temp fix till the UI is able to deal with enrollments
-        this.students = students
         students.each {student->
             Enrollment enrollment = new Enrollment(student, this)
             enrollments.add(enrollment)

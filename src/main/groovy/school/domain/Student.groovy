@@ -22,7 +22,7 @@ public class Student extends Entity {
 	@Relationship(type = "ENROLLED")
 	Set<Enrollment> enrollments = new HashSet<>()
 
-	Set<Course> courses = new HashSet<>()
+//	Set<Course> courses = new HashSet<>()
 
 	@Relationship(type = "BUDDY", direction = Relationship.INCOMING)
 	Set<StudyBuddy> studyBuddies
@@ -39,15 +39,15 @@ public class Student extends Entity {
 
 	public Set<Course> getCourses() {
 		//TODO temp fix till the UI is able to deal with enrollments
+		def courses = []
 		enrollments.each { enrollment->
-			courses.add(enrollment.course)
+			courses << enrollment.course
 		}
 		return courses
 	}
 
 	public void setCourses(Set<Course> courses) {
 		//TODO temp fix till the UI is able to deal with enrollments
-		this.courses = courses
 		courses.each {course ->
 			Enrollment enrollment = new Enrollment(this, course)
 			enrollments.add(enrollment)

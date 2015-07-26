@@ -24,9 +24,21 @@ By default, the application will attempt to use a Neo4j instance running on the 
 Start Neo4j
 -----------
 
-Now start your Neo4j server instance, if its not already running. 
+Now start your Neo4j server instance, if its not already running.
 
 **You should back up any data you want to keep because the application will purge any existing data first**
+
+Download the application
+------------------------
+
+```
+git clone git@github.com:neo4j-examples/neo4j-ogm-university
+cd neo4j-ogm-university
+bower install
+```
+
+The static resources defined in the `bower.json` file will be installed under the `$DIR/src/main/webapp/bower_components` directory. This directory is
+ignored by `git`.
 
 Starting the application
 ------------------------
@@ -84,9 +96,3 @@ Visit the node.js website for details of installing node.js for your particular 
 Once node is installed you'll then need to grab the following npm packages:
 
     npm install --global bower grunt-cli
-
-
-
-
-
-

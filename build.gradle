@@ -1,0 +1,42 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:0.9.17"
+    classpath "com.github.jengelman.gradle.plugins:shadow:1.2.1"
+  }
+}
+
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+repositories {
+  jcenter()
+  maven { url "http://repo.spring.io/libs-snapshot" }
+  maven { url "http://m2.neo4j.org/content/repositories/snapshots"}
+}
+
+dependencies {
+  // SpringLoaded enables runtime hot reloading.
+  // It is not part of the app runtime and is not shipped in the distribution.
+  springloaded "org.springframework:springloaded:1.2.3.RELEASE"
+
+  // Default SLF4J binding.  Note that this is a blocking implementation.
+  // See here for a non blocking appender http://logging.apache.org/log4j/2.x/manual/async.html
+  runtime 'org.slf4j:slf4j-simple:1.7.12'
+
+  compile ratpack.dependency("jackson")
+
+  compile 'org.neo4j:neo4j-ogm:1.1.1-SNAPSHOT'
+  compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
+
+  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+}
+
+run {
+  systemProperty "username", "neo4j"
+  systemProperty "password", "neo"
+}

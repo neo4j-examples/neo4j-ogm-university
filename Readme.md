@@ -37,7 +37,7 @@ cd neo4j-ogm-university
 bower install
 ```
 
-The static resources defined in the `bower.json` file will be installed under the `$DIR/src/main/webapp/bower_components` directory. This directory is
+The static resources defined in the `bower.json` file will be installed under the `$DIR/src/ratpack/public/bower_components` directory. This directory is
 ignored by `git`.
 
 Starting the application

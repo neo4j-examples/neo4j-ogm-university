@@ -17,4 +17,4 @@ deploy/
 .DS_Store
 .classpath
 bin
-src/main/webapp/bower_components
+src/ratpack/public/bower_components

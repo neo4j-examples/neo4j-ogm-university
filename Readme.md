@@ -7,15 +7,15 @@ library which provides convenient access to the [Neo4j](http://neo4j.org) graph 
 
 This tutorial is a fully functioning micro-service based web-application built using the following components
 
-- Spring Boot
 - Neo4j OGM
 - Angular.js
 - Twitter Bootstrap UI
+- Ratpack
 
 The application's domain is a fictitious educational institution - Hilly Fields Technical College - and the application
 allows you to manage the College's Departments, Teaching Staff, Subjects, Students and Classes.
 
-It leverages the power of Spring Boot and the new Neo4j Object Graph mapping technology to provide a RESTful interface with which the web client interacts. The application is entirely stateless: every interaction involves a call to a Neo4j server, hopefully demonstrating the speed of the new technology, even over the wire.
+It leverages the power of the new Neo4j Object Graph mapping technology to provide a RESTful interface with which the web client interacts. The application is entirely stateless: every interaction involves a call to a Neo4j server, hopefully demonstrating the speed of the new technology, even over the wire.
 
 WARNING
 -------
@@ -44,22 +44,25 @@ Starting the application
 ------------------------
 
     cd neo4j-examples/neo4j-ogm-university
-    mvn spring-boot:run
+    gradlew run
 
 Authentication
 --------------
 The application itself does not require any authentication, but if you are running against Neo4j 2.2 or later,
-you'll need to provide connection credentials for the database. Right now, the simplest way to do this is to pass
-the Neo4j username and password on the command line:
+you'll need to provide connection credentials for the database. Right now, the simplest way to do this is to set
+the Neo4j username and password in build.gradle
 
-    mvn spring-boot:run -Drun.jvmArguments="-Dusername=<usr> -Dpassword=<pwd>"
+   run {
+     systemProperty "username", "neo4j"
+     systemProperty "password", "neo"
+   }
 
 Loading the initial dataset
 ---------------------------
 The application can load a set of base data, to get you started. Please be aware that this will destroy
 any existing data that may previously exist, so take a backup.
 
-    http://localhost:8080/api/reload
+    http://localhost:5050/api/reload
 
 This will pre-load the Neo4j database with a handful of departments, a dozen or so subjects and teachers,
 and 200 students. You'll probably want to enrol them in classes...
@@ -68,17 +71,17 @@ Exploring the API:
 -----------------
 The JSON resources from the server can be inspected from the /api/... URLs, e.g.
 
-    http://localhost:8080/api/departments/
-    http://localhost:8080/api/subjects/
-    http://localhost:8080/api/teachers/
-    http://localhost:8080/api/students/
-    http://localhost:8080/api/classes/
+    http://localhost:5050/api/departments/
+    http://localhost:5050/api/subjects/
+    http://localhost:5050/api/teachers/
+    http://localhost:5050/api/students/
+    http://localhost:5050/api/classes/
 
 Running the Hilly Fields web application
 ----------------------------------------
 Simply point your browser at the root URL:
 
-    http://localhost:8080
+    http://localhost:5050
 
 Stopping the application server
 -------------------------------

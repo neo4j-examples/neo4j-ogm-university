@@ -43,7 +43,7 @@ ignored by `git`.
 Starting the application
 ------------------------
 
-    cd neo4j-examples/neo4j-ogm-university
+    cd neo4j-ogm-university
     gradlew run
 
 Authentication
@@ -52,10 +52,12 @@ The application itself does not require any authentication, but if you are runni
 you'll need to provide connection credentials for the database. Right now, the simplest way to do this is to set
 the Neo4j username and password in build.gradle
 
+```
    run {
      systemProperty "username", "neo4j"
-     systemProperty "password", "neo"
+     systemProperty "password", "neopass"
    }
+```
 
 Loading the initial dataset
 ---------------------------

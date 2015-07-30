@@ -37,24 +37,6 @@ public class Student extends Entity {
 		this.name = name
 	}
 
-	public Set<Course> getCourses() {
-		//TODO temp fix till the UI is able to deal with enrollments
-		def courses = []
-		enrollments.each { enrollment->
-			courses << enrollment.course
-		}
-		return courses
-	}
-
-	public void setCourses(Set<Course> courses) {
-		//TODO temp fix till the UI is able to deal with enrollments
-		courses.each {course ->
-			Enrollment enrollment = new Enrollment(this, course)
-			enrollments.add(enrollment)
-			course.enrollments.add(enrollment)
-		}
-	}
-
 	@Override
 	public String toString() {
 		return "Student{" +

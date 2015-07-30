@@ -72,7 +72,7 @@
                             <div class="well view">
                                 <div ng-controller="StudentController">
                                     <div ng-repeat="student in students track by student.id" >
-                                        <label><input type="checkbox" class="form control pull-left" checklist-model="class.students" checklist-value="student" />&nbsp;{{student.name}}</label>
+                                        <label><input type="checkbox" class="form control pull-left" checklist-model="class.enrolledStudents" checklist-value="student.id" />&nbsp;{{student.name}}</label>
                                     </div>
                                 </div>
                             </div>

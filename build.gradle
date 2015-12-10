@@ -30,7 +30,7 @@ dependencies {
 
   compile ratpack.dependency("jackson")
 
-  compile 'org.neo4j:neo4j-ogm:1.1.2'
+  compile 'org.neo4j:neo4j-ogm:1.1.4'
   compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
 
   testCompile "org.spockframework:spock-core:0.7-groovy-2.0"

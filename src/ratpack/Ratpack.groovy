@@ -146,6 +146,15 @@ ratpack {
       }
     }
 
+    handler("api/reload") {
+      def importService = new school.service.ImportService()
+      byMethod {
+        get {
+          importService.reload()
+        }
+      }
+    }
+
     handler("api/:entity") {
       def theService = getTheService(pathTokens.entity, registry)
       byMethod {

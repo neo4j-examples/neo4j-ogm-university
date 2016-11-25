@@ -9,7 +9,6 @@
  *
  */
 
-
 import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.handling.RequestLogger
 import ratpack.http.Status

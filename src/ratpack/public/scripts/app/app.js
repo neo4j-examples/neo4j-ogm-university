@@ -3,27 +3,22 @@
 angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'pascalprecht.translate', 'ngCacheBuster', 'checklist-model'])
 
-    .run(function ($rootScope, $location, $http, $state, $translate, Auth, Principal, Language) {
+    .run(function ($rootScope, $location, $http, $state, $translate, Language) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
 
-//            if (Principal.isIdentityResolved()) {
-//                Auth.authorize();
-//            }
-
-            // Update the language
             Language.getCurrent().then(function (language) {
                 $translate.use(language);
             });
         });
 
-        $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $rootScope.previousStateName = fromState.name;
             $rootScope.previousStateParams = fromParams;
         });
 
-        $rootScope.back = function() {
+        $rootScope.back = function () {
             // If previous state is 'activate' or do not exist go to 'home'
             if ($rootScope.previousStateName === 'activate' || $state.get($rootScope.previousStateName) === null) {
                 $state.go('home');
@@ -33,7 +28,7 @@ angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
         };
 
         // move this somewhere else
-        $rootScope.list = function(iterable) {
+        $rootScope.list = function (iterable) {
             iterable = typeof iterable !== 'undefined' ? iterable : [];
             var values = [];
             for (var i = 0; i < iterable.length; i++) {
@@ -42,7 +37,7 @@ angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
             return values.join(" ");
         };
 
-        $rootScope.truncate = function(obj, depth) {
+        $rootScope.truncate = function (obj, depth) {
 //            for (var property in obj) {
 //                //console.log("depth: " + depth);
 //                //console.log(obj);
@@ -66,11 +61,11 @@ angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
         };
 
     })
-    
+
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $translateProvider, tmhDynamicLocaleProvider, httpRequestInterceptorCacheBusterProvider) {
         //enable CSRF
-        $httpProvider.defaults.xsrfCookieName= 'CSRF-TOKEN';
-        $httpProvider.defaults.xsrfHeaderName= 'X-CSRF-TOKEN';
+        $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
+        $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
         //Cache everything except api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
@@ -85,11 +80,6 @@ angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
                 }
             },
             resolve: {
-                authorize: ['Auth',
-                    function (Auth) {
-                        return Auth.authorize();
-                    }
-                ],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('global');
                     $translatePartialLoader.addPart('language');
@@ -97,7 +87,7 @@ angular.module('registrarApp', ['LocalStorageModule', 'tmh.dynamicLocale',
                 }]
             }
         });
-        
+
 
         // Initialize angular-translate
         $translateProvider.useLoader('$translatePartialLoader', {

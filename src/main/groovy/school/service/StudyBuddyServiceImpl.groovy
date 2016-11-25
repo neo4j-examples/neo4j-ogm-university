@@ -19,7 +19,7 @@ class StudyBuddyServiceImpl extends GenericService<StudyBuddy> implements StudyB
 
     @Override
     Iterable<Map<String, Object>> getStudyBuddiesByPopularity() {
-        String query = "MATCH (s:StudyBuddy)-[:BUDDY]->(p:Student) return p, count(s) as buddies ORDER BY buddies DESC"
+        String query = "MATCH (s:StudyBuddy)<-[:BUDDY]-(p:Student) return p, count(s) as buddies ORDER BY buddies DESC"
         return Neo4jSessionFactory.getInstance().getNeo4jSession().query(query, Collections.EMPTY_MAP)
     }
 

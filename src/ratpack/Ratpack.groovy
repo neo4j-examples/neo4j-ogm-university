@@ -166,13 +166,11 @@ ratpack {
                 }
         }
 
-        path("api/reload") {
+        get("api/reload") {
             def importService = new ImportService()
-            byMethod {
-                get {
-                    importService.reload()
-                }
-            }
+            importService.reload()
+
+            render json("ok")
         }
 
         path("api/:entity") {

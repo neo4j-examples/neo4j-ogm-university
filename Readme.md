@@ -17,6 +17,9 @@ allows you to manage the College's Departments, Teaching Staff, Subjects, Studen
 
 It leverages the power of the new Neo4j Object Graph mapping technology to provide a RESTful interface with which the web client interacts. The application is entirely stateless: every interaction involves a call to a Neo4j server, hopefully demonstrating the speed of the new technology, even over the wire.
 
+> ***NOTE***
+> This project is currently being updated to the latest version of Ratpack and Neo4j OGM.
+
 WARNING
 -------
 By default, the application will attempt to use a Neo4j instance running on the same machine as the application server, and on the standard port 7474. *IT WILL DESTROY ALL THE DATA IN THAT DATABASE AT STARTUP*. So if you don't want that to happen please back up any existing database first.

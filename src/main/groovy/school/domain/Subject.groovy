@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 
 
-public class Subject extends Entity {
+class Subject extends Entity {
 
     @JsonProperty("name")
     String name

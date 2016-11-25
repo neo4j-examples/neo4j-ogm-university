@@ -31,7 +31,7 @@ import school.service.TeacherServiceImpl;
 /**
  * @author Luanne Misquitta
  */
-public class SchoolModule extends AbstractModule {
+class SchoolModule extends AbstractModule {
 
     @Override
     protected void configure() {

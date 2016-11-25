@@ -14,7 +14,7 @@ package school.domain
 import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonProperty
 
-public class Department extends Entity {
+class Department extends Entity {
 
     @JsonProperty("name")
     String name

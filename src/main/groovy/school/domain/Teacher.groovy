@@ -16,7 +16,7 @@ import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 
-public class Teacher extends Entity {
+class Teacher extends Entity {
 
     @JsonProperty("name")
     String name

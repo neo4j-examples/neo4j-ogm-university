@@ -14,11 +14,11 @@ package school.service;
 import school.domain.Teacher;
 
 //@Service("teacherService")
-public class TeacherServiceImpl extends GenericService<Teacher> implements TeacherService {
+class TeacherServiceImpl extends GenericService<Teacher> implements TeacherService {
 
 
     @Override
-    public Class<Teacher> getEntityType() {
-        return Teacher.class;
+    Class<Teacher> getEntityType() {
+        return Teacher.class
     }
 }

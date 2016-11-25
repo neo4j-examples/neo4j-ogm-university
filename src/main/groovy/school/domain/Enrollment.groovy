@@ -17,7 +17,7 @@ import org.neo4j.ogm.annotation.StartNode
 import org.neo4j.ogm.annotation.typeconversion.DateLong
 
 @RelationshipEntity(type = "ENROLLED")
-public class Enrollment {
+class Enrollment {
 
 	Long id
 

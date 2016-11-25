@@ -14,10 +14,10 @@ import school.domain.School;
 
 
 //@Service("schoolService")
-public class SchoolServiceImpl extends GenericService<School> implements SchoolService{
+class SchoolServiceImpl extends GenericService<School> implements SchoolService {
 
     @Override
-    public Class<School> getEntityType() {
-        return School.class;
+    Class<School> getEntityType() {
+        return School.class
     }
 }

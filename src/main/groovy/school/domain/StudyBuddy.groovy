@@ -17,7 +17,7 @@ import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @NodeEntity(label = "StudyBuddy")
-public class StudyBuddy extends Entity {
+class StudyBuddy extends Entity {
 
     @Relationship(type="BUDDY")
     List<Student> buddies

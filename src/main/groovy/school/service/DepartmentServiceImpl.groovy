@@ -15,10 +15,10 @@ package school.service;
 import school.domain.Department;
 
 //@Service("departmentService")
-public class DepartmentServiceImpl extends GenericService<Department> implements DepartmentService {
+class DepartmentServiceImpl extends GenericService<Department> implements DepartmentService {
 
     @Override
-    public Class<Department> getEntityType() {
-        return Department.class;
+    Class<Department> getEntityType() {
+        return Department.class
     }
 }

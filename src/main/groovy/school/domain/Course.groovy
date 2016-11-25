@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * with a subject and the pupils who are taught the subject by the teacher
  */
 @NodeEntity(label="Class")
-public class Course extends Entity {
+class Course extends Entity {
 
     @JsonProperty("name")
     String name

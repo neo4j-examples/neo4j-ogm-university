@@ -14,7 +14,7 @@ package school.domain
 
 import org.neo4j.ogm.annotation.Relationship
 
-public class School extends Entity {
+class School extends Entity {
 
     String name
 

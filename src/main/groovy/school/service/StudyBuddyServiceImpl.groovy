@@ -9,25 +9,22 @@
  *
  */
 
-package school.service;
+package school.service
 
-import java.util.Collections;
-import java.util.Map;
-
-import school.Neo4jSessionFactory;
-import school.domain.StudyBuddy;
+import school.Neo4jSessionFactory
+import school.domain.StudyBuddy
 
 //@Service("studyBuddyService")
-public class StudyBuddyServiceImpl extends GenericService<StudyBuddy> implements StudyBuddyService {
+class StudyBuddyServiceImpl extends GenericService<StudyBuddy> implements StudyBuddyService {
 
     @Override
-    public Iterable<Map<String,Object>> getStudyBuddiesByPopularity() {
-        String query = "MATCH (s:StudyBuddy)-[:BUDDY]->(p:Student) return p, count(s) as buddies ORDER BY buddies DESC";
-        return Neo4jSessionFactory.getInstance().getNeo4jSession().query(query, Collections.EMPTY_MAP);
+    Iterable<Map<String, Object>> getStudyBuddiesByPopularity() {
+        String query = "MATCH (s:StudyBuddy)-[:BUDDY]->(p:Student) return p, count(s) as buddies ORDER BY buddies DESC"
+        return Neo4jSessionFactory.getInstance().getNeo4jSession().query(query, Collections.EMPTY_MAP)
     }
 
     @Override
-    public Class<StudyBuddy> getEntityType() {
-        return StudyBuddy.class;
+    Class<StudyBuddy> getEntityType() {
+        return StudyBuddy.class
     }
 }

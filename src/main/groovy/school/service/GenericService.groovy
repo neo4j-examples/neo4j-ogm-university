@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -9,38 +9,37 @@
  *
  */
 
-package school.service;
+package school.service
 
-import org.neo4j.ogm.session.Session;
-import school.Neo4jSessionFactory;
-import school.domain.Entity;
+import org.neo4j.ogm.session.Session
+import school.Neo4jSessionFactory
 
-public abstract class GenericService<T> implements Service<T> {
+abstract class GenericService<T> implements Service<T> {
 
-    private static final int DEPTH_LIST = 0;
-    private static final int DEPTH_ENTITY = 1;
-    private Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
+    private static final int DEPTH_LIST = 0
+    private static final int DEPTH_ENTITY = 1
+    private Session session = Neo4jSessionFactory.getInstance().getNeo4jSession()
 
     @Override
-    public Iterable<T> findAll() {
-        return session.loadAll(getEntityType(), DEPTH_LIST);
+    Iterable<T> findAll() {
+        return session.loadAll(getEntityType(), DEPTH_LIST)
     }
 
     @Override
-    public T find(Long id) {
-        return session.load(getEntityType(), id, DEPTH_ENTITY);
+    T find(Long id) {
+        return session.load(getEntityType(), id, DEPTH_ENTITY)
     }
 
     @Override
-    public void delete(Long id) {
-        session.delete(session.load(getEntityType(), id));
+    void delete(Long id) {
+        session.delete(session.load(getEntityType(), id))
     }
 
     @Override
-    public T createOrUpdate(T entity) {
-        session.save(entity, DEPTH_ENTITY);
-        return find(entity.id);
+    T createOrUpdate(T entity) {
+        session.save(entity, DEPTH_ENTITY)
+        return find(entity.id)
     }
 
-    public abstract Class<T> getEntityType();
+    abstract Class<T> getEntityType()
 }

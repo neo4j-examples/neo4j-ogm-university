@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -12,33 +12,33 @@
 
 package school.domain
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.neo4j.ogm.annotation.NodeEntity
 import org.neo4j.ogm.annotation.Relationship
-import com.fasterxml.jackson.annotation.JsonProperty
 
 @NodeEntity(label = "StudyBuddy")
 class StudyBuddy extends Entity {
 
-    @Relationship(type="BUDDY")
+    @Relationship(type = "BUDDY")
     List<Student> buddies
 
     @JsonProperty("course")
     Course course
 
-    public StudyBuddy(){
+    StudyBuddy() {
         buddies = new ArrayList<>()
     }
 
-    public void setBuddyTwo( Student buddyTwo ) {
+    void setBuddyTwo(Student buddyTwo) {
         buddies.add(buddyTwo)
     }
 
-    public void setBuddyOne( Student buddyOne ) {
+    void setBuddyOne(Student buddyOne) {
         buddies.add(buddyOne)
     }
 
     @JsonProperty("buddyTwo")
-    public Student getBuddyTwo() {
+    Student getBuddyTwo() {
         if (buddies.size() > 1) {
             return buddies.get(1)
         } else {
@@ -47,7 +47,7 @@ class StudyBuddy extends Entity {
     }
 
     @JsonProperty("buddyOne")
-    public Student getBuddyOne() {
+    Student getBuddyOne() {
         if (buddies.size() > 0) {
             return buddies.get(0)
         } else {
@@ -56,7 +56,7 @@ class StudyBuddy extends Entity {
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return "StudyBuddy{" +
                 "buddies= " + buddies.size() +
                 ", course=" + course +

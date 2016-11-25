@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -11,33 +11,33 @@
 
 package school.domain
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import org.neo4j.ogm.annotation.NodeEntity
 import org.neo4j.ogm.annotation.Relationship
-import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * The course object connects a teacher
  * with a subject and the pupils who are taught the subject by the teacher
  */
-@NodeEntity(label="Class")
+@NodeEntity(label = "Class")
 class Course extends Entity {
 
     @JsonProperty("name")
     String name
 
     @JsonProperty("subject")
-    @Relationship(type= "SUBJECT_TAUGHT")
+    @Relationship(type = "SUBJECT_TAUGHT")
     Subject subject
 
     @JsonProperty("teacher")
-    @Relationship(type= "TEACHES_CLASS", direction=Relationship.INCOMING)
+    @Relationship(type = "TEACHES_CLASS", direction = Relationship.INCOMING)
     Teacher teacher
 
-    @Relationship(type= "ENROLLED", direction=Relationship.INCOMING)
+    @Relationship(type = "ENROLLED", direction = Relationship.INCOMING)
     Set<Enrollment> enrollments = new HashSet<>()
 
     @Override
-    public String toString() {
+    String toString() {
         return "Course{" +
                 "id=" + getId() +
                 ", name='" + name + '\'' +

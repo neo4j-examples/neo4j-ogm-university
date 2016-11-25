@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -11,8 +11,8 @@
 
 package school.domain
 
-import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.neo4j.ogm.annotation.Relationship
 
 class Department extends Entity {
 
@@ -25,18 +25,18 @@ class Department extends Entity {
     @Relationship(type = "CURRICULUM")
     Set<Subject> subjects
 
-    public Department() {
-        this.teachers = new HashSet<>();
-        this.subjects = new HashSet<>();
+    Department() {
+        this.teachers = new HashSet<>()
+        this.subjects = new HashSet<>()
     }
 
-    public Department(String name) {
-        this();
-        this.name = name;
+    Department(String name) {
+        this()
+        this.name = name
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +

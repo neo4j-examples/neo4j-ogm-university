@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -12,10 +12,9 @@
 
 package school.domain
 
-import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-
+import org.neo4j.ogm.annotation.Relationship
 
 class Subject extends Entity {
 
@@ -23,7 +22,7 @@ class Subject extends Entity {
     String name
 
     @JsonIgnore
-    @Relationship(type="CURRICULUM", direction = Relationship.INCOMING)
+    @Relationship(type = "CURRICULUM", direction = Relationship.INCOMING)
     Department department
 
     @Relationship(type = "TAUGHT_BY")
@@ -32,18 +31,18 @@ class Subject extends Entity {
     @Relationship(type = "SUBJECT_TAUGHT", direction = "INCOMING")
     Set<Course> courses
 
-    public Subject(String name) {
+    Subject(String name) {
         this()
         this.name = name
     }
 
-    public Subject() {
+    Subject() {
         this.teachers = new HashSet<>()
         this.courses = new HashSet<>()
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return "Subject{" +
                 "id=" + getId() +
                 ", name='" + name + '\'' +

@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -9,24 +9,11 @@
  *
  */
 
-package school.module;
+package school.module
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Scopes;
-import school.service.ClassRegisterService;
-import school.service.CourseServiceImpl;
-import school.service.DepartmentService;
-import school.service.DepartmentServiceImpl;
-import school.service.SchoolService;
-import school.service.SchoolServiceImpl;
-import school.service.StudentService;
-import school.service.StudentServiceImpl;
-import school.service.StudyBuddyService;
-import school.service.StudyBuddyServiceImpl;
-import school.service.SubjectService;
-import school.service.SubjectServiceImpl;
-import school.service.TeacherService;
-import school.service.TeacherServiceImpl;
+import com.google.inject.AbstractModule
+import com.google.inject.Scopes
+import school.service.*
 
 /**
  * @author Luanne Misquitta

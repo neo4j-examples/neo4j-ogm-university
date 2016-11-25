@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -17,22 +17,22 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import com.voodoodyne.jackson.jsog.JSOGGenerator
 
 //@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-@JsonIdentityInfo(generator=JSOGGenerator.class)
-public abstract class Entity {
+@JsonIdentityInfo(generator = JSOGGenerator.class)
+abstract class Entity {
 
     @JsonProperty("id")
     private Long id
 
-    public Long getId() {
+    Long getId() {
         return id
     }
 
-    public void setId(Long id) {
+    void setId(Long id) {
         this.id = id
     }
 
     @Override
-    public boolean equals(Object o) {
+    boolean equals(Object o) {
         if (this.is(o)) return true
         if (o == null || id == null || getClass() != o.getClass()) return false
 
@@ -44,7 +44,7 @@ public abstract class Entity {
     }
 
     @Override
-    public int hashCode() {
+    int hashCode() {
         return (id == null) ? -1 : id.hashCode()
     }
 }

@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -16,17 +16,17 @@ import org.neo4j.ogm.session.SessionFactory
 
 class Neo4jSessionFactory {
 
-	private final static SessionFactory sessionFactory = new SessionFactory("school.domain")
-	private static Neo4jSessionFactory factory = new Neo4jSessionFactory()
+    private final static SessionFactory sessionFactory = new SessionFactory("school.domain")
+    private static Neo4jSessionFactory factory = new Neo4jSessionFactory()
 
-	static Neo4jSessionFactory getInstance() {
-		return factory
-	}
+    static Neo4jSessionFactory getInstance() {
+        return factory
+    }
 
-	private Neo4jSessionFactory() {
-	}
+    private Neo4jSessionFactory() {
+    }
 
-	Session getNeo4jSession() {
-		return sessionFactory.openSession()
-	}
+    Session getNeo4jSession() {
+        return sessionFactory.openSession()
+    }
 }

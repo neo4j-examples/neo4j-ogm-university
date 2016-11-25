@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -30,19 +30,19 @@ class School extends Entity {
     @Relationship(type = "STUDENT")
     Set<Student> students
 
-    public School() {
+    School() {
         this.departments = new HashSet<>()
         this.teachers = new HashSet<>()
         this.students = new HashSet<>()
     }
 
-    public School(String name) {
+    School(String name) {
         this()
         this.name = name
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return "School{" +
                 "id=" + getId() +
                 ", name='" + name + '\'' +

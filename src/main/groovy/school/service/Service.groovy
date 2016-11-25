@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -9,16 +9,16 @@
  *
  */
 
-package school.service;
+package school.service
 
-public interface Service<T> {
+interface Service<T> {
 
-    Iterable<T> findAll();
+    Iterable<T> findAll()
 
-    T find(Long id);
+    T find(Long id)
 
-    void delete(Long id);
+    void delete(Long id)
 
-    T createOrUpdate(T object);
+    T createOrUpdate(T object)
 
 }

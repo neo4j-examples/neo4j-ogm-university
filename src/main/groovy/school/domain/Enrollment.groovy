@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -19,23 +19,23 @@ import org.neo4j.ogm.annotation.typeconversion.DateLong
 @RelationshipEntity(type = "ENROLLED")
 class Enrollment {
 
-	Long id
+    Long id
 
-	@StartNode
-	Student student
+    @StartNode
+    Student student
 
-	@EndNode
-	Course course
+    @EndNode
+    Course course
 
-	@DateLong
-	Date enrolledDate
+    @DateLong
+    Date enrolledDate
 
-	public Enrollment() {
-	}
+    Enrollment() {
+    }
 
-	public Enrollment(Student student, Course course) {
-		this.student = student
-		this.course = course
-		this.enrolledDate = new Date()
-	}
+    Enrollment(Student student, Course course) {
+        this.student = student
+        this.course = course
+        this.enrolledDate = new Date()
+    }
 }

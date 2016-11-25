@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -9,20 +9,20 @@
  *
  */
 
-package school;
+package school
 
 /**
  * Application constants.
  */
-public final class Constants {
+final class Constants {
 
     private Constants() {
     }
 
-    public static final String SPRING_PROFILE_DEVELOPMENT = "dev";
-    public static final String SPRING_PROFILE_PRODUCTION = "prod";
-    public static final String SPRING_PROFILE_FAST = "fast";
-    public static final String SPRING_PROFILE_CLOUD = "cloud";
-    public static final String SYSTEM_ACCOUNT = "system";
+    static final String SPRING_PROFILE_DEVELOPMENT = "dev"
+    static final String SPRING_PROFILE_PRODUCTION = "prod"
+    static final String SPRING_PROFILE_FAST = "fast"
+    static final String SPRING_PROFILE_CLOUD = "cloud"
+    static final String SYSTEM_ACCOUNT = "system"
 
 }

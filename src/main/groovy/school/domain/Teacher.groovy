@@ -1,7 +1,7 @@
 /*
  * Copyright [2011-2016] "Neo Technology"
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -12,37 +12,37 @@
 
 package school.domain
 
-import org.neo4j.ogm.annotation.Relationship
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
+import org.neo4j.ogm.annotation.Relationship
 
 class Teacher extends Entity {
 
     @JsonProperty("name")
     String name
 
-    @Relationship(type="TEACHES_CLASS")
+    @Relationship(type = "TEACHES_CLASS")
     Set<Course> courses
 
     @JsonIgnore
-    @Relationship(type="DEPARTMENT_MEMBER", direction = Relationship.INCOMING)
+    @Relationship(type = "DEPARTMENT_MEMBER", direction = Relationship.INCOMING)
     Department department
 
-    @Relationship(type="TAUGHT_BY", direction = Relationship.INCOMING)
+    @Relationship(type = "TAUGHT_BY", direction = Relationship.INCOMING)
     Set<Subject> subjects
 
-    public Teacher(String name) {
+    Teacher(String name) {
         this()
         this.name = name
     }
 
-    public Teacher() {
+    Teacher() {
         this.courses = new HashSet<>()
         this.subjects = new HashSet<>()
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return "Teacher{" +
                 "id=" + getId() +
                 ", name='" + name + '\'' +

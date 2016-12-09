@@ -2,9 +2,9 @@
 
 *There are several branches that you may find useful:*
 
-- `master`***[THIS BRANCH]*** - *contains the `bolt` version of this application. It requires Neo4j `3.0` or above.*
+- `master`- *contains the `bolt` version of this application. It requires Neo4j `3.0` or above.*
 - `embedded` - *contains the `embedded` version of this application. It requires Neo4j `2.3` or above.*
-- `http` - *contains the `http` version of this application. It requires Neo4j `2.3` or above.*
+- `http`***[THIS BRANCH]***  - *contains the `http` version of this application. It requires Neo4j `2.3` or above.*
 
 Hilly Fields Technical College
 ==============================

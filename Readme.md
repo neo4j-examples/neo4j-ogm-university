@@ -38,8 +38,7 @@ You will need to following to run this application:
 
 [Gradle](https://gradle.org/) has already been downloaded for you to execute.
 
-Download the application
-###
+### Download the application
 
 Either [download](https://github.com/neo4j-examples/neo4j-ogm-university/archive/embedded.zip) the application or use `git` to clone the application:
 
@@ -52,8 +51,7 @@ bower install
 
 The static resources defined in the `bower.json` file will be installed under the `$DIR/src/ratpack/public/bower_components` directory. This directory is ignored by `git`.
 
-Starting the application
-###
+### Starting the application
 
 ```
 gradlew run
@@ -62,8 +60,7 @@ gradlew run
 And that's it! Head to <http://localhost:5050> to see your application running.
 
 
-Loading the initial dataset
-###
+### Loading the initial dataset
 
 You may notice that there is no data for you to interact with. To fix this hit the following endpoint from your browser or using `curl`:
 
@@ -73,8 +70,7 @@ This will pre-load the Neo4j database with a handful of departments, a dozen or 
 and 200 students. You'll probably want to enrol them in classes...
 
 
-Stopping the application server
-###
+### Stopping the application server
 
 You can stop the application server at any time by pressing `Ctrl-C` in the console window from where you launched it.
 

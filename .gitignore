@@ -9,6 +9,7 @@ deploy/
 .bin/
 .idea/
 .tmp/
+.gradle
 *.class
 *.iml
 *.iws

@@ -19,6 +19,7 @@ apply plugin: "eclipse"
 apply plugin: "idea"
 
 repositories {
+    mavenLocal()
     maven { url "http://oss.jfrog.org/artifactory/repo" }
     jcenter()
     maven { url "http://repo.springsource.org/repo" } // for springloaded

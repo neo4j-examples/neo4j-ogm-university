@@ -71,24 +71,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def departmentInstance = context.parse(Department.class)
-                        departmentInstance = departmentService.createOrUpdate(departmentInstance)
-                        render json(departmentInstance)
-                    }
-                }
-        }
-
-
-        path("api/departments") {
-            DepartmentService departmentService ->
-                byMethod {
-                    get {
-                        context.next()
-                    }
-                    post {
-                        def departmentInstance = context.parse(Department.class)
-                        departmentInstance = departmentService.createOrUpdate(departmentInstance)
-                        render json(departmentInstance)
+                        parse(Department).then {
+                            department  -> render json(departmentService.createOrUpdate(department))
+                        }
                     }
                 }
         }
@@ -100,9 +85,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def studentInstance = context.parse(Student.class)
-                        studentInstance = studentService.createOrUpdate(studentInstance)
-                        render json(studentInstance)
+                        parse(Student).then {
+                            student  -> render json(studentService.createOrUpdate(student))
+                        }
                     }
                 }
         }
@@ -114,9 +99,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def subjectInstance = context.parse(Subject.class)
-                        subjectInstance = subjectService.createOrUpdate(subjectInstance)
-                        render json(subjectInstance)
+                        parse(Subject).then {
+                            subject  -> render json(subjectService.createOrUpdate(subject))
+                        }
                     }
                 }
         }
@@ -128,9 +113,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def teacherInstance = context.parse(Teacher.class)
-                        teacherInstance = teacherService.createOrUpdate(teacherInstance)
-                        render json(teacherInstance)
+                        parse(Teacher).then {
+                            teacher  -> render json(teacherService.createOrUpdate(teacher))
+                        }
                     }
                 }
         }
@@ -142,12 +127,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def courseInstance = context.parse(Course.class)
-                        courseInstance = classRegisterService.createOrUpdate(courseInstance)
-                        render "ok"
-                        return
-
-                        render json(courseInstance)
+                        parse(Course).then {
+                            course  -> render json(classRegisterService.createOrUpdate(course))
+                        }
                     }
                 }
         }
@@ -159,9 +141,9 @@ ratpack {
                         context.next()
                     }
                     post {
-                        def studyBuddyInstance = context.parse(StudyBuddy.class)
-                        studyBuddyInstance = studyBuddyService.createOrUpdate(studyBuddyInstance)
-                        render json(studyBuddyInstance)
+                        parse(StudyBuddy).then {
+                            studyBuddy  -> render json(studyBuddyService.createOrUpdate(studyBuddy))
+                        }
                     }
                 }
         }
@@ -196,16 +178,5 @@ static def getTheService(String entityName, def registry) {
             return registry.get(Class.forName("school.service.StudyBuddyService"))
         default:
             return registry.get(Class.forName("school.service.${entityName[0..-2]?.capitalize()}Service"))
-    }
-}
-
-static def getTheEntityClass(String entityName) {
-    switch (entityName) {
-        case 'classes':
-            return Class.forName("school.domain.Course")
-        case 'studyBuddies':
-            return Class.forName("school.domain.StudyBuddy")
-        default:
-            return Class.forName("school.domain.${entityName[0..-2]?.capitalize()}")
     }
 }

@@ -3,7 +3,7 @@
 *There are several branches that you may find useful:*
 
 - `master` - *contains the `bolt` version of this application. It requires Neo4j `3.0` or above.*
-- `embedded` - *contains the `embedded` version of this application. It requires Neo4j `2.3` or above.*
+- `embedded`***[THIS BRANCH]*** - *contains the `embedded` version of this application. It requires Neo4j `2.3` or above.*
 - `http` - *contains the `http` version of this application. It requires Neo4j `2.3` or above.*
 
 Hilly Fields Technical College
@@ -49,7 +49,7 @@ git checkout embedded
 bower install
 ```
 
-The static resources defined in the `bower.json` file will be installed under the `$DIR/src/ratpack/public/bower_components` directory. This directory is ignored by `git`.
+The static resources defined in the `bower.json` file will be installed under the `src/ratpack/public/bower_components` directory. This directory is ignored by `git`.
 
 ### Starting the application
 
@@ -68,6 +68,10 @@ You may notice that there is no data for you to interact with. To fix this hit t
 
 This will pre-load the Neo4j database with a handful of departments, a dozen or so subjects and teachers,
 and 200 students. You'll probably want to enrol them in classes...
+
+> ***NOTE***
+>
+> You may notice that your data disappears between restarts. That's because if you don't supply a directory to house the database only a temporary data store is set up (and gets destroyed on close).  If you want the data to persist between restarts then in your favourite editor modify `src/main/resources/ogm.properties` and add a new line with `URI=file:///var/tmp/neo4j.db` or wherever you want your database to reside.
 
 
 ### Stopping the application server

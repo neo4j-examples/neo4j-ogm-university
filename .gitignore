@@ -3,6 +3,7 @@ bower_components/
 node_modules/
 notworkingyet/
 deploy/
+build/
 .buildpath
 .project
 .settings

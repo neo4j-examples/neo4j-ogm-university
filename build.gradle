@@ -44,8 +44,3 @@ dependencies {
         exclude module: "groovy-all"
     }
 }
-
-run {
-    systemProperty "username", "neo4j"
-    systemProperty "password", "admin"
-}

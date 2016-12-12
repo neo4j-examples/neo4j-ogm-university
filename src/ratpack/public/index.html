@@ -13,9 +13,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
         <!-- build:css assets/styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/bootstrap.css">
-        <link rel="stylesheet" href="assets/styles/main.css">
+        <link rel="stylesheet" href="main.css">
         <!-- endbuild -->
     </head>
     <body ng-app="registrarApp">
@@ -40,86 +40,66 @@
 
 
         <!-- build:js scripts/vendor.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-translate/angular-translate.js"></script>
-        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-        <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
-        <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
-        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
-        <script src="bower_components/checklist-model/checklist-model.js"></script>
-        <script src="bower_components/jsog/lib/JSOG.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="jquery/dist/jquery.js"></script>
+        <script src="angular/angular.js"></script>
+        <script src="angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="angular-resource/angular-resource.js"></script>
+        <script src="angular-cookies/angular-cookies.js"></script>
+        <script src="angular-sanitize/angular-sanitize.js"></script>
+        <script src="checklist-model/checklist-model.js"></script>
+        <script src="jsog/lib/JSOG.js"></script>
+        <script src="bootstrap/dist/js/bootstrap.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/app.js -->
-        <script src="scripts/app/app.js"></script>
-        <script src="scripts/components/form/form.directive.js"></script>
-        <script src="scripts/components/language/language.service.js"></script>
-        <script src="scripts/components/language/language.controller.js"></script>
-        <script src="scripts/components/admin/audits.service.js"></script>
-        <script src="scripts/components/admin/logs.service.js"></script>
-        <script src="scripts/components/admin/configuration.service.js"></script>
-        <script src="scripts/components/admin/monitoring.service.js"></script>
-        <script src="scripts/components/navbar/navbar.directive.js"></script>
-        <script src="scripts/components/navbar/navbar.controller.js"></script>
-        <script src="scripts/components/util/truncate.filter.js"></script>
-        <script src="scripts/components/util/base64.service.js"></script>
+        <script src="app/app.js"></script>
+        <script src="components/form/form.directive.js"></script>
+        <script src="components/admin/audits.service.js"></script>
+        <script src="components/admin/logs.service.js"></script>
+        <script src="components/admin/configuration.service.js"></script>
+        <script src="components/admin/monitoring.service.js"></script>
+        <script src="components/navbar/navbar.directive.js"></script>
+        <script src="components/navbar/navbar.controller.js"></script>
+        <script src="components/util/truncate.filter.js"></script>
+        <script src="components/util/base64.service.js"></script>
 
-        <script src="scripts/app/error/error.js"></script>
+        <script src="app/error/error.js"></script>
 
-        <script src="scripts/app/main/main.js"></script>
-        <script src="scripts/app/main/main.controller.js"></script>
+        <script src="app/main/main.js"></script>
+        <script src="app/main/main.controller.js"></script>
 
-        <script src="scripts/app/entities/entity.js"></script>
-        <script src="scripts/app/entities/school/school.js"></script>
-        <script src="scripts/app/entities/school/school.controller.js"></script>
-        <script src="scripts/app/entities/school/school-detail.controller.js"></script>
-        <script src="scripts/app/entities/school/school.service.js"></script>
-        <script src="scripts/app/entities/department/department.js"></script>
-        <script src="scripts/app/entities/department/department.controller.js"></script>
-        <script src="scripts/app/entities/department/department-detail.controller.js"></script>
-        <script src="scripts/app/entities/department/department.service.js"></script>
-        <script src="scripts/app/entities/student/student.js"></script>
-        <script src="scripts/app/entities/student/student.controller.js"></script>
-        <script src="scripts/app/entities/student/student-detail.controller.js"></script>
-        <script src="scripts/app/entities/student/student.service.js"></script>
-        <script src="scripts/app/entities/subject/subject.js"></script>
-        <script src="scripts/app/entities/subject/subject.controller.js"></script>
-        <script src="scripts/app/entities/subject/subject-detail.controller.js"></script>
-        <script src="scripts/app/entities/subject/subject.service.js"></script>
-        <script src="scripts/app/entities/teacher/teacher.js"></script>
-        <script src="scripts/app/entities/teacher/teacher.controller.js"></script>
-        <script src="scripts/app/entities/teacher/teacher-detail.controller.js"></script>
-        <script src="scripts/app/entities/teacher/teacher.service.js"></script>
-        <script src="scripts/app/entities/class/class.js"></script>
-        <script src="scripts/app/entities/class/class.controller.js"></script>
-        <script src="scripts/app/entities/class/class-detail.controller.js"></script>
-        <script src="scripts/app/entities/class/class.service.js"></script>
-        <script src="scripts/app/entities/studyBuddy/studyBuddy.js"></script>
-        <script src="scripts/app/entities/studyBuddy/studyBuddy.controller.js"></script>
-        <script src="scripts/app/entities/studyBuddy/studyBuddy-detail.controller.js"></script>
-        <script src="scripts/app/entities/studyBuddy/studyBuddy.service.js"></script>
-        <script src="scripts/app/entities/statistics/statistics.js"></script>
-        <script src="scripts/app/entities/statistics/statistics.controller.js"></script>
-        <script src="scripts/app/entities/statistics/statistics.service.js"></script>
+        <script src="app/entities/entity.js"></script>
+        <script src="app/entities/school/school.js"></script>
+        <script src="app/entities/school/school.controller.js"></script>
+        <script src="app/entities/school/school-detail.controller.js"></script>
+        <script src="app/entities/school/school.service.js"></script>
+        <script src="app/entities/department/department.js"></script>
+        <script src="app/entities/department/department.controller.js"></script>
+        <script src="app/entities/department/department-detail.controller.js"></script>
+        <script src="app/entities/department/department.service.js"></script>
+        <script src="app/entities/student/student.js"></script>
+        <script src="app/entities/student/student.controller.js"></script>
+        <script src="app/entities/student/student-detail.controller.js"></script>
+        <script src="app/entities/student/student.service.js"></script>
+        <script src="app/entities/subject/subject.js"></script>
+        <script src="app/entities/subject/subject.controller.js"></script>
+        <script src="app/entities/subject/subject-detail.controller.js"></script>
+        <script src="app/entities/subject/subject.service.js"></script>
+        <script src="app/entities/teacher/teacher.js"></script>
+        <script src="app/entities/teacher/teacher.controller.js"></script>
+        <script src="app/entities/teacher/teacher-detail.controller.js"></script>
+        <script src="app/entities/teacher/teacher.service.js"></script>
+        <script src="app/entities/class/class.js"></script>
+        <script src="app/entities/class/class.controller.js"></script>
+        <script src="app/entities/class/class-detail.controller.js"></script>
+        <script src="app/entities/class/class.service.js"></script>
+        <script src="app/entities/studyBuddy/studyBuddy.js"></script>
+        <script src="app/entities/studyBuddy/studyBuddy.controller.js"></script>
+        <script src="app/entities/studyBuddy/studyBuddy-detail.controller.js"></script>
+        <script src="app/entities/studyBuddy/studyBuddy.service.js"></script>
+        <script src="app/entities/statistics/statistics.js"></script>
+        <script src="app/entities/statistics/statistics.controller.js"></script>
+        <script src="app/entities/statistics/statistics.service.js"></script>
         <!-- endbuild -->
 </body>
 </html>

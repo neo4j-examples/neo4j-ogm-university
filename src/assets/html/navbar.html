@@ -1,0 +1,84 @@
+<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController">
+    <div class="container">
+        <div>
+            <span class="logo pull-left img-responsive img-rounded"></span>
+            <h1 translate="main.title"></h1>
+            <p class="small" translate="main.subtitle">
+        </div>
+
+        <!--
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        -->
+
+        <!-- ng--switch="isAuthenticated()"> -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <span class="lead" ></span>
+            <ul class="nav navbar-nav nav-pills navbar-right">
+
+                <!-- home icon -->
+                <li ui-sref-active="active">
+                    <a ui-sref="home">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span translate="global.menu.home">Home</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active" class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                        <span>
+                            <span class="glyphicon glyphicon-list"></span>
+                            <span class="hidden-tablet">Reports</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active" ><a ui-sref="statistics"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span>Popular Study Buddies</span></a></li>
+                    </ul>
+                </li>
+
+                <!-- entities menu -->
+                <!-- ng-switch-when="true" -->
+                <li ui-sref-active="active" class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-tablet" translate="global.menu.entities.main">
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li ui-sref-active="active" ><a ui-sref="department"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span translate="global.menu.entities.department">department</span></a></li>
+
+                        <li ui-sref-active="active" ><a ui-sref="student"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span translate="global.menu.entities.student">student</span></a></li>
+
+                        <li ui-sref-active="active" ><a ui-sref="subject"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span translate="global.menu.entities.subject">subject</span></a></li>
+
+                        <li ui-sref-active="active" ><a ui-sref="teacher"><span class="glyphicon glyphicon-asterisk"></span>
+                            &#xA0;<span translate="global.menu.entities.teacher">teacher</span></a></li>
+
+                      <li ui-sref-active="active" ><a ui-sref="class"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.class">class</span></a></li>
+
+                      <li ui-sref-active="active" ><a ui-sref="studyBuddy"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.studyBuddy">studyBuddy</span></a></li>
+                         <!--add entities to the menu here-->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

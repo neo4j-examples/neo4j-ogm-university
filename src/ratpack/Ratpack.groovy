@@ -9,6 +9,9 @@
  *
  */
 
+
+import asset.pipeline.ratpack.AssetPipelineHandler
+import asset.pipeline.ratpack.AssetPipelineModule
 import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.handling.RequestLogger
 import ratpack.http.Status
@@ -26,6 +29,7 @@ ratpack {
     bindings {
         module MarkupTemplateModule
         module SchoolModule
+        module AssetPipelineModule
     }
 
     handlers {
@@ -164,7 +168,8 @@ ratpack {
             }
         }
 
-        files { it.dir("public") }
+        all(AssetPipelineHandler)
+
     }
 }
 

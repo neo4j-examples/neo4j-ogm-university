@@ -6,9 +6,6 @@ angular.module('registrarApp')
             .state('statistics', {
                 parent: 'entity',
                 url: '/popular',
-                data: {
-                    roles: ['ROLE_USER']
-                },
                 views: {
                     'content@': {
                         templateUrl: 'statistics.html',

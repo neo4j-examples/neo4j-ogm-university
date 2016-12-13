@@ -6,9 +6,6 @@ angular.module('registrarApp')
             .state('error', {
                 parent: 'site',
                 url: '/error',
-                data: {
-                    roles: []
-                },
                 views: {
                     'content@': {
                         templateUrl: 'error.html'

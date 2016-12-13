@@ -6,9 +6,6 @@ angular.module('registrarApp')
             .state('studyBuddy', {
                 parent: 'entity',
                 url: '/studyBuddies',
-                data: {
-                    roles: ['ROLE_USER']
-                },
                 views: {
                     'content@': {
                         templateUrl: 'studyBuddies.html',
@@ -19,9 +16,6 @@ angular.module('registrarApp')
             .state('studyBuddyDetail', {
                 parent: 'entity',
                 url: '/studyBuddies/:id',
-                data: {
-                    roles: ['ROLE_USER']
-                },
                 views: {
                     'content@': {
                         templateUrl: 'studyBuddy-detail.html',

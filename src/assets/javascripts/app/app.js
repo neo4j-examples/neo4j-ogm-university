@@ -22,16 +22,6 @@ angular.module('registrarApp', ['ngResource', 'ui.router'])
                 $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
             }
         };
-
-        // move this somewhere else
-        $rootScope.list = function (iterable) {
-            iterable = typeof iterable !== 'undefined' ? iterable : [];
-            var values = [];
-            for (var i = 0; i < iterable.length; i++) {
-                values.push(iterable[i].name);
-            }
-            return values.join(" ");
-        };
     })
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {

@@ -6,9 +6,6 @@ angular.module('registrarApp')
             .state('class', {
                 parent: 'entity',
                 url: '/classes',
-                data: {
-                    roles: ['ROLE_USER']
-                },
                 views: {
                     'content@': {
                         templateUrl: 'classes.html',
@@ -19,9 +16,6 @@ angular.module('registrarApp')
             .state('classDetail', {
                 parent: 'entity',
                 url: '/classes/:id',
-                data: {
-                    roles: ['ROLE_USER']
-                },
                 views: {
                     'content@': {
                         templateUrl: 'class-detail.html',

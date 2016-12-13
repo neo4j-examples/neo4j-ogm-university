@@ -1,21 +1,12 @@
 'use strict';
 
 angular.module('registrarApp')
-    .factory('Subject', function ($resource, $cacheFactory) {
+    .factory('Subject', function ($resource) {
 
         var url = 'api/subjects/:id';
-        var cache = $cacheFactory.get('$http');
-
-        var interceptor = {
-            response: function (response) {
-                cache.remove(response.config.url);
-                console.log('cache removed', response.config.url);
-                return response;
-            }
-        };
 
         // should be done on server side
-        var truncate = function(obj, depth) {
+        var truncate = function (obj, depth) {
             for (var property in obj) {
                 if (property == 'id' || property == 'name') {
                     continue;
@@ -28,13 +19,13 @@ angular.module('registrarApp')
                         obj[property] = null;
                     }
                 } else {
-                    truncate(obj[property], depth -1);
+                    truncate(obj[property], depth - 1);
                 }
             }
         };
 
 
-        var prune = function(obj, depth) {
+        var prune = function (obj, depth) {
             for (var property in obj) {
                 if (property == 'id' || property == 'name') {
                     continue;
@@ -42,29 +33,30 @@ angular.module('registrarApp')
                 if (depth == 0) {
                     delete obj[property];
                 } else {
-                    prune(obj[property], depth -1);
+                    prune(obj[property], depth - 1);
                 }
             }
         };
 
         return $resource(url, {}, {
-            'query'  : { method: 'GET', isArray: true, cache: cache,
+            'query': {
+                method: 'GET', isArray: true,
                 transformResponse: function (data) {
                     var obj = JSOG.parse(data);
                     for (var i = 0; i < obj.length; i++) {
                         truncate(obj[i], 0);
                     }
-                    console.log(obj);
                     return obj;
-                }},
-            'remove' : { method: 'DELETE', cache: interceptor },
-            'delete' : { method: 'DELETE', cache: interceptor },
-            'post'   : { method: 'POST', cache: interceptor },
-            'get'    : { method: 'GET', cache: cache,
+                }
+            },
+            'remove': {method: 'DELETE'},
+            'delete': {method: 'DELETE'},
+            'post': {method: 'POST'},
+            'get': {
+                method: 'GET',
                 transformResponse: function (data) {
                     var obj = JSOG.parse(data);
                     truncate(obj, 2);
-                    console.log(obj);
                     return obj;
                 }
             }

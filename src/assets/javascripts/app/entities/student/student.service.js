@@ -1,34 +1,24 @@
 'use strict';
 
 angular.module('registrarApp')
-    .factory('Student', function ($resource, $cacheFactory) {
+    .factory('Student', function ($resource) {
 
         var url = 'api/students/:id';
-        var cache = $cacheFactory.get('$http');
-
-        var interceptor = {
-            response: function (response) {
-                cache.remove(response.config.url);
-                console.log('cache removed', response.config.url);
-                return response;
-            }
-        };
 
         return $resource(url, {}, {
-            'query'  : { method: 'GET', isArray: true, cache: cache,
+            'query': {
+                method: 'GET', isArray: true,
                 transformResponse: function (data) {
-                    var obj = JSOG.parse(data);
-                    console.log(obj);
-                    return obj;
-                }},
-            'remove' : { method: 'DELETE', cache: interceptor },
-            'delete' : { method: 'DELETE', cache: interceptor },
-            'post'   : { method: 'POST', cache: interceptor },
-            'get'    : { method: 'GET', cache: cache,
+                    return JSOG.parse(data);
+                }
+            },
+            'remove': {method: 'DELETE'},
+            'delete': {method: 'DELETE'},
+            'post': {method: 'POST'},
+            'get': {
+                method: 'GET',
                 transformResponse: function (data) {
-                    var obj = JSOG.parse(data);
-                    console.log(obj);
-                    return obj;
+                    return JSOG.parse(data);
                 }
             }
         });

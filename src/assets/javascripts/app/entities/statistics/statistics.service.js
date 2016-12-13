@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('registrarApp')
-    .factory('Statistics', function ($resource, $cacheFactory) {
+    .factory('Statistics', function ($resource) {
 
         var url = 'api/studyBuddies/popular';
-        var cache = $cacheFactory.get('$http');
 
         return $resource(url, {}, {
-            'query'  : { method: 'GET', isArray: true, cache: cache,
+            'query': {
+                method: 'GET', isArray: true,
                 transformResponse: function (data) {
-                    var obj = JSOG.parse(data);
-                    console.log(obj);
-                    return obj;
+                    return JSOG.parse(data);
                 }
             }
         });

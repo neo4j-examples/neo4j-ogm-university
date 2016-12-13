@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('registrarApp', ['ngResource', 'ui.router', 'ngCookies'])
+angular.module('registrarApp', ['ngResource', 'ui.router'])
 
     .run(function ($rootScope, $location, $http, $state) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
@@ -32,30 +32,6 @@ angular.module('registrarApp', ['ngResource', 'ui.router', 'ngCookies'])
             }
             return values.join(" ");
         };
-
-        $rootScope.truncate = function (obj, depth) {
-//            for (var property in obj) {
-//                //console.log("depth: " + depth);
-//                //console.log(obj);
-//                //console.log("property: " + property);
-//                if (property == 'id' || property == 'name' || property == '$promise' || property == '$resolved' || property == '__proto__') {
-//                    continue;
-//                }
-//                if (depth == 0 || property == '$$hashKey') {
-//                    console.log("deleting " + property + " from " + obj);
-//                    delete obj[property];
-//                    //var p = obj[property];
-//                    //if (p && p.constructor === Array) {
-//                    //    obj[property] = [];
-//                    //} else {
-//                    //    obj[property] = null;
-//                    //}
-//                } else {
-//                    $rootScope.truncate(obj[property], depth -1);
-//                }
-//            }
-        };
-
     })
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -63,15 +39,12 @@ angular.module('registrarApp', ['ngResource', 'ui.router', 'ngCookies'])
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
-        //Cache everything except api requests
-
         $urlRouterProvider.otherwise('/');
         $stateProvider.state('site', {
             'abstract': true,
             views: {
                 'navbar@': {
-                    templateUrl: 'navbar.html',
-                    controller: 'NavbarController'
+                    templateUrl: 'navbar.html'
                 }
             }
         });

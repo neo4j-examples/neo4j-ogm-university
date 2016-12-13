@@ -1,18 +1,18 @@
 
 <div>
-    <h2><span translate="registrarApp.school.detail.title">School</span> {{school.id}}</h2>
+    <h2><span>School</span> {{school.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th translate="entity.detail.field">Field</th>
-                    <th translate="entity.detail.value">Value</th>
+                    <th>Field</th>
+                    <th>Value</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <span translate="registrarApp.school.name">Name</span>
+                        <span>Name</span>
                     </td>
                     <td>
                         <input type="text" class="input-sm form-control" value="{{school.name}}" readonly>
@@ -25,6 +25,6 @@
     <button type="submit"
             ui-sref="school"
             class="btn btn-info">
-        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
     </button>
 </div>

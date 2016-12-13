@@ -1,6 +1,6 @@
 <!-- list the teachers -->
 <div>
-    <h2><span translate="registrarApp.teacher.detail.title">Teacher</span> {{teacher.id}}:{{teacher.name}}</h2>
+    <h2><span>Teacher</span> {{teacher.id}}:{{teacher.name}}</h2>
     <div class="table-responsive">
         <form name="form"
               role="form"
@@ -10,15 +10,15 @@
 
             <div>
                 <button ui-sref="teacher" class="btn btn-info">
-                    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+                    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
                 </button>
 
                 <button type="submit" ng-click="create()" ui-sref="teacher" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
                 </button>
 
                 <button type="submit" ng-click="delete(teacher.id)" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
                 </button>
             </div>
 
@@ -26,44 +26,46 @@
 
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th translate="entity.detail.field">Field</th>
-                        <th translate="entity.detail.value">Value</th>
-                    </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Name</span></td>
-                        <td><input type="text" class="form-control" ng-model="teacher.name" value="{{teacher.name}}"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Specialist subjects</span>
-                        </td>
-                        <td>
-                            <div class="well view">
-                                <div ng-controller="SubjectController">
-                                    <div ng-repeat="subject in subjects track by subject.id" >
-                                        <label><input type="checkbox" class="form control pull-left" checklist-model="teacher.subjects" checklist-value="subject" />&nbsp;{{subject.name}}</label>
-                                    </div>
+                <tr>
+                    <td>Name</span></td>
+                    <td><input type="text" class="form-control" ng-model="teacher.name" value="{{teacher.name}}"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Specialist subjects</span>
+                    </td>
+                    <td>
+                        <div class="well view">
+                            <div ng-controller="SubjectController">
+                                <div ng-repeat="subject in subjects track by subject.id">
+                                    <label><input type="checkbox" class="form control pull-left"
+                                                  checklist-model="teacher.subjects" checklist-value="subject"/>&nbsp;{{subject.name}}</label>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>Classes taught</span>
-                        </td>
-                        <td>
-                            <div class="well">
-                                <div ng-controller="ClassController">
-                                    <div ng-repeat="class in classes track by class.id" >
-                                       <label><input type="checkbox" class="form control pull-left" checklist-model="teacher.classRegisters" checklist-value="class" />&nbsp;{{class.name}}</label>
-                                    </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Classes taught</span>
+                    </td>
+                    <td>
+                        <div class="well">
+                            <div ng-controller="ClassController">
+                                <div ng-repeat="class in classes track by class.id">
+                                    <label><input type="checkbox" class="form control pull-left"
+                                                  checklist-model="teacher.classRegisters" checklist-value="class"/>&nbsp;{{class.name}}</label>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </form>
@@ -76,19 +78,19 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                        <h4 class="modal-title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="registrarApp.teacher.delete.question" translate-values="{id: '{{teacher.id}}'}">Are you sure you want to delete Teacher {{teacher.id}}?</p>
+                        <p>Are you sure you want to delete Teacher {{teacher.id}}?</p>
                     </div>
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
                         </button>
 
                         <button type="button" class="btn btn-danger" ng-click="confirmDelete(teacher.id)">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
                         </button>
 
                     </div>

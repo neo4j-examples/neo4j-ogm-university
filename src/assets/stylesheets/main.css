@@ -1,8 +1,47 @@
-body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
 }
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background: #fafafa;
+    color: #333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+    padding: 60px 15px 0;
+}
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+
 
 /* ==========================================================================
 Developement Ribbon
@@ -71,11 +110,7 @@ Browser Upgrade Prompt
     overflow:hidden;
     width:100%;
 }
-.wrap .img-responsive {
-    position:relative;
-    opacity: 0.3;
-    z-index:1;
-}
+
 .wrap .desc {
     display:block;
     position:absolute;
@@ -88,9 +123,9 @@ Browser Upgrade Prompt
 
 .logo {
     display: inline-block;
-    width: 45px;
-    height: 60px;
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
     background: url("../images/chevron-chief-crossbotony-233x300.png") no-repeat center top;
     background-size: contain;
 }
@@ -121,10 +156,8 @@ Browser Upgrade Prompt
 
 .register {
     display: inline-block;
-    width: 347px;
-    height: 450px;
+
     background: url("../images/student-register.jpg") no-repeat center top;
-    background-size: contain;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */

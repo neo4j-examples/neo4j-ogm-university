@@ -1,6 +1,5 @@
-
 <div>
-    <h2><span translate="registrarApp.student.detail.title">Student</span> {{student.id}}:{{student.name}}</h2>
+    <h2><span>Student</span> {{student.id}}:{{student.name}}</h2>
     <div class="table-responsive">
         <form name="form"
               role="form"
@@ -10,43 +9,45 @@
 
             <div>
                 <button ui-sref="student" class="btn btn-info">
-                    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+                    <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
                 </button>
 
                 <button type="submit" ng-click="create()" ui-sref="student" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
                 </button>
 
                 <button type="submit" ng-click="delete(student.id)" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                    <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
                 </button>
             </div>
 
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th translate="entity.detail.field">Field</th>
-                        <th translate="entity.detail.value">Value</th>
-                    </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><span>Name</span></td>
-                        <td><input type="text" class="input-sm form-control" ng-model="student.name" value="{{student.name}}"></td>
-                    </tr>
+                <tr>
+                    <td><span>Name</span></td>
+                    <td><input type="text" class="input-sm form-control" ng-model="student.name"
+                               value="{{student.name}}"></td>
+                </tr>
 
-                    <tr>
-                        <td><span>Enrolled classes</span></td>
-                        <td>
-                            <div class="well view">
-                                <div ng-controller="ClassController">
-                                    <div ng-repeat="class in classes track by class.id" >
-                                        <label><input type="checkbox" class="form control pull-left" checklist-model="student.enrolledClasses" checklist-value="class.id" />&nbsp;{{class.name}}</label>
-                                    </div>
+                <tr>
+                    <td><span>Enrolled classes</span></td>
+                    <td>
+                        <div class="well view">
+                            <div ng-controller="ClassController">
+                                <div ng-repeat="class in classes track by class.id">
+                                    <label><input type="checkbox" class="form control pull-left"
+                                                  checklist-model="student.enrolledClasses" checklist-value="class.id"/>&nbsp;{{class.name}}</label>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
+                        </div>
+                    </td>
+                </tr>
 
                 </tbody>
             </table>
@@ -60,19 +61,19 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                        <h4 class="modal-title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="registrarApp.student.delete.question" translate-values="{id: '{{student.id}}'}">Are you sure you want to delete Student {{student.id}}?</p>
+                        <p>Are you sure you want to delete Student {{student.id}}?</p>
                     </div>
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
                         </button>
 
                         <button type="button" class="btn btn-danger" ng-click="confirmDelete(student.id)">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
                         </button>
 
                     </div>
@@ -80,5 +81,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>

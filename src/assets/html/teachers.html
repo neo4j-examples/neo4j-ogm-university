@@ -1,10 +1,10 @@
 <div>
 
-    <h2 translate="registrarApp.teacher.home.title">Teacher</h2>
+    <h2>Teacher</h2>
 
     <!-- create a new teacher -->
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveTeacherModal" ng-click="clear()">
-        <span class="glyphicon glyphicon-flash"></span> <span translate="registrarApp.teacher.home.createLabel">Create a new Teacher</span>
+        <span class="glyphicon glyphicon-flash"></span> <span>Create a new Teacher</span>
     </button>
 
     <div class="modal fade" id="saveTeacherModal" tabindex="-1" role="dialog" aria-labelledby="myTeacherLabel"
@@ -18,12 +18,12 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myTeacherLabel" translate="registrarApp.teacher.home.createOrEditLabel">Create or edit a Teacher</h4>
+                        <h4 class="modal-title" id="myTeacherLabel">Create or edit a Teacher</h4>
                     </div>
                     <div class="modal-body">
 
                         <div class="form-group">
-                            <label translate="registrarApp.teacher.name">Name</label>
+                            <label >Name</label>
                             <input type="text" class="form-control"
                                    ng-model="teacher.name">
                         </div>
@@ -31,10 +31,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
                         </button>
                         <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
-                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
                         </button>
                     </div>
                 </form>
@@ -50,17 +50,17 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" translate="entity.delete.title">Confirm delete operation</h4>
+                        <h4 class="modal-title">Confirm delete operation</h4>
                     </div>
                     <div class="modal-body">
-                        <p translate="registrarApp.teacher.delete.question" translate-values="{id: '{{teacher.id}}'}">Are you sure you want to delete Teacher {{teacher.id}}?</p>
+                        <p>Are you sure you want to delete Teacher {{teacher.id}}?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
                         </button>
                         <button type="submit" ng-disabled="form.$invalid" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete">Delete</span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span>Delete</span>
                         </button>
                     </div>
                 </form>

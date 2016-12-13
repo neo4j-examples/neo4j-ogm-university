@@ -38,10 +38,10 @@ dependencies {
     // See here for a non blocking appender http://logging.apache.org/log4j/2.x/manual/async.html
 
     runtime 'org.slf4j:slf4j-simple:1.7.21'
-    runtime 'org.neo4j:neo4j-ogm-bolt-driver:2.1.0-SNAPSHOT'
+    runtime 'org.neo4j:neo4j-ogm-bolt-driver:2.1.0'
 
     compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.6.7'
-    compile 'org.neo4j:neo4j-ogm-core:2.1.0-SNAPSHOT'
+    compile 'org.neo4j:neo4j-ogm-core:2.1.0'
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
 
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4", {
@@ -68,11 +68,4 @@ assets {
     ]
 
     includes = []
-    excludes = ['**/*.less'] //Example Exclude GLOB pattern
-
-    //for plugin packaging
-    packagePlugin=false //set to true if this is a library
-
-    //developmentRuntime can be turned off
-    developmentRuntime=true
 }

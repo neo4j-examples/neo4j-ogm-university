@@ -1,8 +1,36 @@
-<h2>Class</h2>
+<div class="page-header">
+    <h1>Classes </h1>
 
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveClassModal" ng-click="clear()">
-    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Class</span>
-</button>
+</div>
+
+<div class="form-inline">
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="searchText" placeholder="Search for...">
+    </div>
+    <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#saveClassModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-plus"></span> <span>Create</span>
+    </button>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 ">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="cursor: pointer;" ui-sref="classDetail({id:class.id})"
+                ng-repeat="class in classes | filter:searchText track by class.id">
+                <td>{{class.id}}</td>
+                <td>{{class.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="modal fade" id="saveClassModal" tabindex="-1" role="dialog" aria-labelledby="myClassLabel"
      aria-hidden="true">
@@ -55,14 +83,3 @@
     </div>
 </div>
 
-<div>
-    <span>Find&nbsp;<label><input class="search" ng-model="searchText"></label></span>
-</div>
-
-<table class="table table-striped">
-    <tbody>
-    <tr ng-repeat="class in classes | filter:searchText">
-        <td><a ng-model="class.name" ui-sref="classDetail({id:class.id})">{{class.id}}:{{class.name}}</a></td>
-    </tr>
-    </tbody>
-</table>

@@ -14,17 +14,5 @@ angular.module('registrarApp')
                         templateUrl: 'error.html'
                     }
                 }
-            })
-            .state('accessdenied', {
-                parent: 'site',
-                url: '/accessdenied',
-                data: {
-                    roles: []
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'accessdenied.html'
-                    }
-                }
             });
     });

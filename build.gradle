@@ -36,11 +36,6 @@ dependencies {
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
 }
 
-run {
-    systemProperty "username", "neo4j"
-    systemProperty "password", "admin"
-}
-
 assets {
     minifyJs = true
     minifyCss = true

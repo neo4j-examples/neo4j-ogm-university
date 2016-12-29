@@ -1,16 +1,11 @@
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.2.1'
-}
-
 buildscript {
     repositories {
-        maven { url "http://oss.jfrog.org/artifactory/repo" }
         jcenter()
     }
     dependencies {
         classpath "io.ratpack:ratpack-gradle:1.4.4"
         classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
-        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.6.7'
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.12.1'
     }
 }
 
@@ -21,11 +16,7 @@ apply plugin: "idea"
 apply plugin: 'asset-pipeline'
 
 repositories {
-    mavenLocal()
-    maven { url "http://oss.jfrog.org/artifactory/repo" }
     jcenter()
-    maven { url "http://repo.springsource.org/repo" } // for springloaded
-    maven { url "http://m2.neo4j.org/content/repositories/snapshots" }
 }
 
 configurations.all {
@@ -40,13 +31,9 @@ dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.21'
     runtime 'org.neo4j:neo4j-ogm-bolt-driver:2.1.0'
 
-    compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.6.7'
+    compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.12.1'
     compile 'org.neo4j:neo4j-ogm-core:2.1.0'
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
-
-    testCompile "org.spockframework:spock-core:1.0-groovy-2.4", {
-        exclude module: "groovy-all"
-    }
 }
 
 run {

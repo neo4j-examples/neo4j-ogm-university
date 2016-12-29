@@ -29,7 +29,10 @@ ratpack {
     bindings {
         module MarkupTemplateModule
         module SchoolModule
-        module AssetPipelineModule
+        module(AssetPipelineModule) { config ->
+            // only matters at development time, and path is relative to the build path
+            config.sourcePath ="../../../src/assets"
+        }
     }
 
     handlers {

@@ -43,7 +43,7 @@ You will need to following to run this application:
 
 ### Download the application
 
-Either [download](https://github.com/neo4j-examples/neo4j-ogm-university/archive/embedded.zip) the application or use `git` to clone the application:
+Either [download](https://github.com/neo4j-examples/neo4j-ogm-university/archive/master.zip) the application or use `git` to clone the application:
 
 ```
 git clone git@github.com:neo4j-examples/neo4j-ogm-university.git
@@ -54,13 +54,13 @@ The static resources defined in the `bower.json` file will be installed under th
 
 ### Starting the application
 
-If you are running against Neo4j `2.2` or later, you'll need to provide connection credentials for the database. Right now, the simplest way to do this is to set the Neo4j username and password in `build.gradle`
+You'll need to provide connection credentials for the database. To do this is to set the Neo4j username and password in `src/main/resources/ogm.properties`
 
 ```
-run {
-    systemProperty "username", "neo4j"
-    systemProperty "password", "neopass"
-}
+driver=org.neo4j.ogm.drivers.bolt.driver.BoltDriver
+URI=bolt://localhost
+username=<Your username here>
+password=<Your password here>
 ```
 
 You can then start the application with gradle:

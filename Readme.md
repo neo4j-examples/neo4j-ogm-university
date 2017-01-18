@@ -48,6 +48,7 @@ Either [download](https://github.com/neo4j-examples/neo4j-ogm-university/archive
 ```
 git clone git@github.com:neo4j-examples/neo4j-ogm-university.git
 cd neo4j-ogm-university
+git checkout http
 ```
 
 The static resources defined in the `bower.json` file will be installed under the `src/ratpack/public/bower_components` directory. This directory is ignored by `git`.
@@ -57,8 +58,8 @@ The static resources defined in the `bower.json` file will be installed under th
 You'll need to provide connection credentials for the database. To do this is to set the Neo4j username and password in `src/main/resources/ogm.properties`
 
 ```
-driver=org.neo4j.ogm.drivers.bolt.driver.BoltDriver
-URI=bolt://localhost
+driver=org.neo4j.ogm.drivers.http.driver.HttpDriver
+URI=http://localhost:7474
 username=<Your username here>
 password=<Your password here>
 ```

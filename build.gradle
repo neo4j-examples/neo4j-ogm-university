@@ -4,12 +4,12 @@ task wrapper(type: Wrapper) {
 
 buildscript {
     repositories {
-        maven { url "http://oss.jfrog.org/artifactory/repo" }
         jcenter()
     }
     dependencies {
         classpath "io.ratpack:ratpack-gradle:1.4.4"
         classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.12.1'
     }
 }
 
@@ -17,13 +17,10 @@ apply plugin: "io.ratpack.ratpack-groovy"
 apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: "eclipse"
 apply plugin: "idea"
+apply plugin: 'asset-pipeline'
 
 repositories {
-    mavenLocal()
-    maven { url "http://oss.jfrog.org/artifactory/repo" }
     jcenter()
-    maven { url "http://repo.springsource.org/repo" } // for springloaded
-    maven { url "http://m2.neo4j.org/content/repositories/snapshots" }
 }
 
 configurations.all {
@@ -32,15 +29,25 @@ configurations.all {
 
 dependencies {
 
-    // Default SLF4J binding.  Note that this is a blocking implementation.
-    // See here for a non blocking appender http://logging.apache.org/log4j/2.x/manual/async.html
-    runtime 'org.slf4j:slf4j-simple:1.7.21'
-    runtime 'org.neo4j:neo4j-ogm-embedded-driver:2.1.0-SNAPSHOT'
+    runtime 'org.neo4j:neo4j-ogm-embedded-driver:2.1.1'
 
-    compile 'org.neo4j:neo4j-ogm-core:2.1.0-SNAPSHOT'
+    compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.12.1'
+    compile 'org.neo4j:neo4j-ogm-core:2.1.1'
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'
+}
 
-    testCompile "org.spockframework:spock-core:1.0-groovy-2.4", {
-        exclude module: "groovy-all"
-    }
+assets {
+    minifyJs = true
+    minifyCss = true
+    enableSourceMaps = true
+    enableGzip = true
+
+    configOptions = [:] //useful for custom config on extension libraries
+
+    minifyOptions = [
+            optimizationLevel: 'SIMPLE',
+            angularPass: true // Can use @ngInject annotation for Angular Apps
+    ]
+
+    includes = []
 }

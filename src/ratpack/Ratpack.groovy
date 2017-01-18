@@ -9,6 +9,9 @@
  *
  */
 
+
+import asset.pipeline.ratpack.AssetPipelineHandler
+import asset.pipeline.ratpack.AssetPipelineModule
 import ratpack.groovy.template.MarkupTemplateModule
 import ratpack.handling.RequestLogger
 import ratpack.http.Status
@@ -26,6 +29,10 @@ ratpack {
     bindings {
         module MarkupTemplateModule
         module SchoolModule
+        module(AssetPipelineModule) { config ->
+            // only matters at development time, and path is relative to the build path
+            config.sourcePath ="../../../src/assets"
+        }
     }
 
     handlers {
@@ -164,7 +171,8 @@ ratpack {
             }
         }
 
-        files { it.dir("public") }
+        all(AssetPipelineHandler)
+
     }
 }
 

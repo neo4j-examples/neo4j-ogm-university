@@ -16,7 +16,7 @@ import org.neo4j.ogm.session.SessionFactory
 
 class Neo4jSessionFactory {
 
-    private final static SessionFactory sessionFactory = new SessionFactory("school.domain")
+    private static SessionFactory sessionFactory = new SessionFactory("school.domain")
     private static Neo4jSessionFactory factory = new Neo4jSessionFactory()
 
     static Neo4jSessionFactory getInstance() {

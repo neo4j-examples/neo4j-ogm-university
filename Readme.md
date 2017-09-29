@@ -1,27 +1,17 @@
 Hilly Fields Technical College
 ==============================
 
-*This branch contains the `embedded` version of the Hilly Fields Technical College web application.*
-
-*There are several branches that you may find useful:*
-
-- `master`***[THIS BRANCH]*** - *contains the `bolt` version of this application. It requires Neo4j `3.0` or above.*
-- `embedded` - *contains the `embedded` version of this application. It requires Neo4j `2.3` or above.*
-- `http` - *contains the `http` version of this application. It requires Neo4j `2.3` or above.*
-
-
-![Logo](https://raw.githubusercontent.com/neo4j-examples/sdn4-university/master/src/main/webapp/assets/images/engineering-dept.JPG)
-
 Overview
 --------
 
-This demo web application shows developers how to quickly get started with the [Neo4j OGM](https://github.com/neo4j/neo4j-ogm) library and [Neo4j](http://neo4j.org) graph database.  For the Spring Framework version of this application please check out [SDN4 University](https://github.com/neo4j-examples/sdn4-university).
+This demo web application shows developers how to quickly get started with the [Neo4j OGM](https://github.com/neo4j/neo4j-ogm) library and [Neo4j](http://neo4j.org) graph database.
+For the Spring Framework version of this application please check out [SDN University](https://github.com/neo4j-examples/sdn-university).
 
 Hilly Fields Technical College is a fictitious educational institution. This application allows you to manage its departments, teaching staff, subjects, students and classes.
 
 This project is built using:
 
-- Neo4j OGM 2.1
+- Neo4j OGM 3.0
 - AngularJS 1.3
 - Bootstrap 3.3
 - Ratpack 1.4
@@ -36,8 +26,8 @@ Getting Started
 
 You will need to following to run this application:
 
-- [Java 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- [Neo4j](http://neo4j.org)
+- [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [Neo4j](http://neo4j.org) version `3.1` or above. *Optional if you are using the embedded driver.*
 
 [Gradle](https://gradle.org/) has already been downloaded for you to execute.
 
@@ -52,21 +42,48 @@ cd neo4j-ogm-university
 
 The static resources defined in the `bower.json` file will be installed under the `src/ratpack/public/bower_components` directory. This directory is ignored by `git`.
 
-### Starting the application
+### Configuration
 
-You'll need to provide connection credentials for the database. To do this is to set the Neo4j username and password in `src/main/resources/ogm.properties`
+This sample uses the `bolt` driver to connect to a local Neo4j instance running on port `7474`.
+If you want to change this behaviour and/or provide your credentials read the sub-sections below.
+
+#### Properties
+If you are using a `bolt` or `http` connection to the database you'll need to provide connection credentials.
+To do this is to set the Neo4j username and password in `src/main/resources/ogm.properties`
 
 ```
-driver=org.neo4j.ogm.drivers.bolt.driver.BoltDriver
+# use bolt driver
 URI=bolt://localhost
+# use http driver
+# URI=http://localhost:7474
 username=<Your username here>
 password=<Your password here>
 ```
 
+To make the application use the `embedded` driver comment the `URI` property.
+
+#### Dependencies
+
+To use other drivers than `bolt` you also have to define the dependencies in the `build.gradle` file.
+
+```
+// use bolt driver
+runtime 'org.neo4j:neo4j-ogm-bolt-driver:3.0.0'
+
+// use http driver
+// runtime 'org.neo4j:neo4j-ogm-http-driver:3.0.0'
+
+// use embedded driver
+// runtime 'org.neo4j:neo4j-ogm-embedded-driver:3.0.0'
+// runtime 'org.neo4j:neo4j:3.2.5'
+```
+
+### Starting the application
+
 You can then start the application with gradle:
 
 ```
-gradlew run
+./gradlew run
 ```
 
 And that's it! Head to <http://localhost:5050> to see your application running.

@@ -29,8 +29,8 @@ configurations.all {
 
 dependencies {
 
-    compile 'org.neo4j:neo4j-ogm-core:2.1.3'
-    runtime 'org.neo4j:neo4j-ogm-http-driver:2.1.3'
+    compile 'org.neo4j:neo4j-ogm-core:2.1.6'
+    runtime 'org.neo4j:neo4j-ogm-http-driver:2.1.6'
 
     compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.12.1'
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'

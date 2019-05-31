@@ -25,17 +25,17 @@ configurations.all {
 
 dependencies {
 
-    compile 'org.neo4j:neo4j-ogm-core:3.1.4'
+    compile 'org.neo4j:neo4j-ogm-core:3.1.10'
 
     // use bolt driver
-    runtime 'org.neo4j:neo4j-ogm-bolt-driver:3.1.4'
+    runtime 'org.neo4j:neo4j-ogm-bolt-driver:3.1.10'
 
     // use http driver
-    // runtime 'org.neo4j:neo4j-ogm-http-driver:3.1.4'
+    // runtime 'org.neo4j:neo4j-ogm-http-driver:3.1.10'
 
     // use embedded driver
-    // runtime 'org.neo4j:neo4j-ogm-embedded-driver:3.1.4'
-    // runtime 'org.neo4j:neo4j:3.2.5'
+    // runtime 'org.neo4j:neo4j-ogm-embedded-driver:3.1.10'
+    // runtime 'org.neo4j:neo4j:3.5.6'
 
     compile 'com.bertramlabs.plugins:ratpack-asset-pipeline:2.12.1'
     compile 'com.voodoodyne.jackson.jsog:jackson-jsog:1.1'

@@ -1,15 +1,11 @@
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.2.1'
-}
-
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "io.ratpack:ratpack-gradle:1.4.4"
-        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
-        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.12.1'
+        classpath "io.ratpack:ratpack-gradle:1.6.1"
+        classpath "com.github.jengelman.gradle.plugins:shadow:4.0.2"
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:3.0.10'
     }
 }
 
